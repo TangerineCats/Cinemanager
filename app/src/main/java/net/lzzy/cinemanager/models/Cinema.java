@@ -4,7 +4,8 @@ import net.lzzy.sqllib.Ignored;
 import net.lzzy.sqllib.Sqlitable;
 
 /**
- * Created by lzzy_gxy on 2019/3/11.
+ * @author lzzy_gxy
+ * @date 2019/3/11
  * Description:
  */
 public class Cinema extends BaseEntity implements Sqlitable {
@@ -63,20 +64,20 @@ public class Cinema extends BaseEntity implements Sqlitable {
 
     @Override
     public String toString() {
-        return location+name;
+        return location + name;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == this){
+        if (obj == this) {
             return true;
         }
-        if(obj == null){
+        if (obj == null) {
             return false;
         }
-        if(obj instanceof Cinema){
+        if (obj instanceof Cinema) {
             return this.toString().equals(obj.toString());
-        }else {
+        } else {
             return false;
         }
     }
