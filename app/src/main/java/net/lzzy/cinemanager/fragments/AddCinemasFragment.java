@@ -3,11 +3,10 @@ package net.lzzy.cinemanager.fragments;
 import net.lzzy.cinemanager.R;
 
 /**
- * @author lzzy_gxy
- * @date 2019/3/26
+ * @author lzzy_gxy on 2019/3/27.
  * Description:
  */
-public class CinemasFragment extends BaseFragment {
+public class AddCinemasFragment extends BaseFragment {
 
     @Override
     protected void populate() {
@@ -16,6 +15,6 @@ public class CinemasFragment extends BaseFragment {
 
     @Override
     public int getLayoutRes() {
-        return R.layout.fragment_cinemas;
+        return R.layout.fragment_add_cinemas;
     }
 }
