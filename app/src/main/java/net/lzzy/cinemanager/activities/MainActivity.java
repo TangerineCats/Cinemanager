@@ -1,9 +1,12 @@
 package net.lzzy.cinemanager.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.Window;
 import android.widget.SearchView;
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvTitle;
     private SearchView search;
     private FragmentManager manger = getSupportFragmentManager();
+    private SparseArray<String> titleArray = new SparseArray<>();
+    private SparseArray<Fragment> fragmentArray = new SparseArray<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,25 +66,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         layoutMenu.setVisibility(View.GONE);
-        switch (v.getId()) {
+        tvTitle.setText(titleArray.get(v.getId()));
+        FragmentTransaction transaction = manger.beginTransaction();
+        Fragment fragment = fragmentArray.get(v.getId());
+        if (fragment == null) {
+            fragment = createFragment(v.getId());
+            fragmentArray.put(v.getId(), fragment);
+            transaction.add(R.id.fragment_container, fragment);
+        }
+        for (Fragment f : manger.getFragments()) {
+            transaction.hide(f);
+        }
+        transaction.show(fragment).commit();
+    }
+
+    private Fragment createFragment(int id) {
+        switch (id) {
             case R.id.bar_title_tv_add_cinema:
                 break;
             case R.id.bar_title_tv_view_cinema:
-                tvTitle.setText(R.string.bar_title_menu_cinema);
-                manger.beginTransaction()
-                        .replace(R.id.scarp_container, new CinemasFragment())
-                        .commit();
-                break;
+                return new CinemasFragment();
             case R.id.bar_title_tv_add_order:
                 break;
             case R.id.bar_title_tv_view_order:
-                tvTitle.setText(R.string.bar_title_menu_orders);
-                manger.beginTransaction().
-                        replace(R.id.scarp_container, new OrderFragment())
-                        .commit();
-                break;
+                return new OrderFragment();
             default:
                 break;
         }
+        return null;
     }
 }
