@@ -6,9 +6,10 @@
     tools:context=".activities.MainActivity">
 
     <FrameLayout
-        android:id="@+id/scarp_container"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/bar_height" />
 
     <include layout="@layout/bar_title" />
 

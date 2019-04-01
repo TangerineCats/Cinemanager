@@ -22,7 +22,12 @@ public class ViewUtils {
             return handleQuery(newText);
         }
 
-
+        /**
+         * handle query logic
+         *
+         * @param kw keyword
+         * @return end query
+         */
         public abstract boolean handleQuery(String kw);
     }
 
@@ -34,6 +39,12 @@ public class ViewUtils {
             return handleTouch(event);
         }
 
+        /**
+         * 处理触摸事件
+         *
+         * @param event 触摸事件对象
+         * @return 消费触摸事件吗
+         */
         public abstract boolean handleTouch(MotionEvent event);
     }
 }

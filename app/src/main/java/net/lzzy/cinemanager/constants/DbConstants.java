@@ -18,7 +18,6 @@ public final class DbConstants {
     public static DbPackager packager;
 
     static {
-        packager = DbPackager.getInstance(AppUtils.getContext(),
-                DB_NAME, DB_VERSION, R.raw.models);
+        packager = DbPackager.getInstance(AppUtils.getContext(), DB_NAME, DB_VERSION, R.raw.models);
     }
 }

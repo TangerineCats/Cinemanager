@@ -7,7 +7,8 @@ import net.lzzy.sqllib.Table;
 import java.util.UUID;
 
 /**
- * Created by lzzy_gxy on 2019/3/11.
+ * @author lzzy_gxy
+ * @date 2019/3/11
  * Description:
  */
 @Table(name = "Orders")

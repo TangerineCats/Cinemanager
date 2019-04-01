@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Objects;
 
-
 /**
- * @author lzzy_gxy on 2019/3/27.
+ * @author lzzy_gxy
+ * @date 2019/3/27
  * Description:
  */
 public abstract class BaseFragment extends Fragment {
@@ -24,6 +24,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(getLayoutRes(), container, false);
     }
 
@@ -39,4 +40,5 @@ public abstract class BaseFragment extends Fragment {
     <T extends View> T find(@IdRes int id) {
         return Objects.requireNonNull(getView()).findViewById(id);
     }
+
 }

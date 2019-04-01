@@ -16,8 +16,7 @@ public class OrderFactory {
     private SqlRepository<Order> repository;
 
     private OrderFactory() {
-        repository = new SqlRepository<>(AppUtils.getContext(), Order.class,
-                DbConstants.packager);
+        repository = new SqlRepository<>(AppUtils.getContext(), Order.class, DbConstants.packager);
     }
 
     public static OrderFactory getInstance() {

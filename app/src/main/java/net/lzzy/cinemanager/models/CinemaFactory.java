@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lzzy_gxy on 2019/3/11.
+ * @author lzzy_gxy
+ * @date 2019/3/11
  * Description:
  */
 public class CinemaFactory {
@@ -20,8 +21,7 @@ public class CinemaFactory {
     }
 
     private CinemaFactory() {
-        repository = new SqlRepository<>(AppUtils.getContext(), Cinema.class,
-                DbConstants.packager);
+        repository = new SqlRepository<>(AppUtils.getContext(), Cinema.class, DbConstants.packager);
     }
 
     public List<Cinema> get() {

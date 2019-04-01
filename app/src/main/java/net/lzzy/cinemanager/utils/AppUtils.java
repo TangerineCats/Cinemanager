@@ -1,5 +1,6 @@
 package net.lzzy.cinemanager.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -28,7 +29,9 @@ import java.util.Hashtable;
  * @date 2019/3/11
  * Description:
  */
+@SuppressLint("Registered")
 public class AppUtils extends Application {
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     @Override
@@ -51,14 +54,35 @@ public class AppUtils extends Application {
         return (int) (dpValue * scale + 0.5f);
     }
 
+    /**
+     * 创建二维码位图
+     *
+     * @param content 字符串内容(支持中文)
+     * @param width   位图宽度(单位:dp)
+     * @param height  位图高度(单位:dp)
+     * @return
+     */
     public static Bitmap createQRCodeBitmap(String content, int width, int height) {
         return createQRCodeBitmap(content, dp2px(width), dp2px(height), "UTF-8",
                 "H", "2", Color.BLACK, Color.WHITE);
     }
 
-    private static Bitmap createQRCodeBitmap(String content, int width, int height,
-                                             String characterSet, String errorCorrection,
-                                             String margin, int colorBlack, int colorWhite) {
+    /**
+     * 创建二维码位图 (支持自定义配置和自定义样式)
+     *
+     * @param content         字符串内容
+     * @param width           位图宽度,要求>=0(单位:px)
+     * @param height          位图高度,要求>=0(单位:px)
+     * @param characterSet    字符集/字符转码格式 (支持格式:{@link CharacterSetECI })。传null时,zxing源码默认使用 "ISO-8859-1"
+     * @param errorCorrection 容错级别 (支持级别:{@link ErrorCorrectionLevel })。传null时,zxing源码默认使用 "L"
+     * @param margin          空白边距 (可修改,要求:整型且>=0), 传null时,zxing源码默认使用"4"。
+     * @param colorBlack      黑色色块的自定义颜色值
+     * @param colorWhite      白色色块的自定义颜色值
+     * @return
+     */
+    private static Bitmap createQRCodeBitmap(String content, int width, int height, String characterSet,
+                                             String errorCorrection, String margin,
+                                             int colorBlack, int colorWhite) {
         if (TextUtils.isEmpty(content)) {
             return null;
         }
@@ -76,8 +100,7 @@ public class AppUtils extends Application {
             if (!TextUtils.isEmpty(margin)) {
                 hints.put(EncodeHintType.MARGIN, margin);
             }
-            BitMatrix bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE,
-                    width, height, hints);
+            BitMatrix bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
             int[] pixels = new int[width * height];
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
