@@ -6,42 +6,39 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/cinemas_items_name"
+            android:id="@+id/order_item_movie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cinemas_menu_item"
             android:textSize="20sp"
-            tools:text="环球金融中心" />
+            tools:text="邪不压正" />
 
         <TextView
-            android:id="@+id/cinemas_items_location"
+            android:id="@+id/order_item_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
             tools:text="上海市上海市浦东新区" />
-
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="right"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/earth55" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/order_item_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/liji_material_red_700"
+        android:focusable="false"
+        android:gravity="center"
+        android:text="删除"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
 </LinearLayout>

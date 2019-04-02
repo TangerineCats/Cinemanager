@@ -75,7 +75,6 @@
             android:id="@+id/bar_title_tv_view_cinema"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-
             android:text="@string/bar_title_menu_cinema"
             android:textSize="18sp" />
 
