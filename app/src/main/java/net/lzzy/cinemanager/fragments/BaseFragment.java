@@ -23,8 +23,10 @@ public abstract class BaseFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable
-            ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(getLayoutRes(), container, false);
     }
 
@@ -34,17 +36,8 @@ public abstract class BaseFragment extends Fragment {
         populate();
     }
 
-    /**
-     * 执行onCreateView中初始化视图组件，填充数据任务
-     */
     protected abstract void populate();
 
-
-    /**
-     * Get according to layout
-     *
-     * @return layout
-     */
     protected abstract int getLayoutRes();
 
     <T extends View> T find(@IdRes int id) {
@@ -52,6 +45,4 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public abstract void search(String kw);
-
-
 }

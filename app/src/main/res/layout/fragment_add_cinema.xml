@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:background="@color/color4"
+        android:background="@color/color3"
         android:gravity="center"
-        android:text="注册新影院"
+        android:text="新影院"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
 
@@ -24,7 +24,7 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/dialog_add_cinema_layout_area"
+            android:id="@+id/fragment_add_cinema_layout_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -35,7 +35,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/dialog_add_tv_area"
+                android:id="@+id/fragment_add_tv_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
@@ -44,15 +44,14 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
         </RelativeLayout>
-
     </LinearLayout>
 
     <EditText
-        android:id="@+id/dialog_add_cinema_edt_name"
+        android:id="@+id/fragment_add_cinema_edt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="请输入影院名称" />
+        android:hint="请输入影片名称" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,14 +60,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/dialog_add_cinema_btn_cancel"
+            android:id="@+id/fragment_add_cinema_btn_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="取消" />
 
         <Button
-            android:id="@+id/dialog_add_cinema_btn_save"
+            android:id="@+id/fragment_add_cinema_btn_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

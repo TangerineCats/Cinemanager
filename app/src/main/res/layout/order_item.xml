@@ -14,31 +14,29 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/order_item_movie"
+            android:id="@+id/order_items_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/cinemas_menu_item"
             android:textSize="20sp"
-            tools:text="邪不压正" />
+            tools:text="夏目友人帐" />
 
         <TextView
-            android:id="@+id/order_item_location"
+            android:id="@+id/order_items_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            tools:text="上海市上海市浦东新区" />
+            android:textSize="15sp"
+            tools:text="广西壮族自治区柳州市城中区万达影城" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/order_item_btn"
+        android:id="@+id/main_item_btn"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/liji_material_red_700"
+        android:background="@color/colorAccent"
         android:focusable="false"
         android:gravity="center"
         android:text="删除"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         android:visibility="gone" />
-
 </LinearLayout>

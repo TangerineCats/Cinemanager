@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author lzzy_gxy
- * @date 2019/3/11
+ * Created by lzzy_gxy on 2019/3/11.
  * Description:
  */
 public class CinemaFactory {
@@ -24,19 +23,19 @@ public class CinemaFactory {
         repository = new SqlRepository<>(AppUtils.getContext(), Cinema.class, DbConstants.packager);
     }
 
-    public List<Cinema> get() {
+    public List<Cinema> get(){
         return repository.get();
     }
 
-    public Cinema getById(String id) {
+    public Cinema getById(String id){
         return repository.getById(id);
     }
 
-    public List<Cinema> searchCinemas(String kw) {
+    public List<Cinema> searchCinemas(String kw){
         List<Cinema> result = new ArrayList<>();
         List<Cinema> all = get();
-        for (Cinema cinema : all) {
-            if (cinema.toString().contains(kw)) {
+        for(Cinema cinema:all){
+            if(cinema.toString().contains(kw)){
                 result.add(cinema);
             }
         }
@@ -44,18 +43,18 @@ public class CinemaFactory {
     }
 
     private boolean isCinemaExists(Cinema cinema) {
-        return searchCinemas(cinema.toString()).size() > 0;
+        return searchCinemas(cinema.toString()).size()>0;
     }
 
-    public boolean addCinema(Cinema cinema) {
-        if (!isCinemaExists(cinema)) {
+    public boolean addCinema(Cinema cinema){
+        if(!isCinemaExists(cinema)){
             repository.insert(cinema);
             return true;
         }
         return false;
     }
 
-    public boolean deleteCinema(Cinema cinema) {
+    public boolean deleteCinema(Cinema cinema){
         repository.delete(cinema);
         return true;
     }
